@@ -12,12 +12,15 @@ class BlogItemDetails extends Component {
   }
 
   getBlogItemData = async () => {
+    //   open developer tools click on console it will show match. in this match available  params : unique id (path id)
+    console.log(this.props)
     const {match} = this.props
     const {params} = match
     const {id} = params
 
     const response = await fetch(`https://apis.ccbp.in/blogs/${id}`)
     const data = await response.json()
+    console.log(data)
 
     const updatedData = {
       title: data.title,
